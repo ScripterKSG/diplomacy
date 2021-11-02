@@ -1,0 +1,4 @@
+.PHONY: Diplomacy.log
+
+FILES:=	\
+	
