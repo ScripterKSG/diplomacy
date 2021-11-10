@@ -50,7 +50,7 @@ Diplomacy.html: Diplomacy.py
 Diplomacy.log:
 	git log > Diplomacy.log
 
-RunDiplomacy.tmp: RunDiplomacy-0.in RunDiplomacy-0.out RunDiplomacy-0.py
+RunDiplomacy.tmp: RunDiplomacy-0.in RunDiplomacy-0.out RunDiplomacy.py
 	$(PYTHON) RunDiplomacy.py < RunDiplomacy-0.in > RunDiplomacy.tmp
 	diff --strip-trailing-cr RunDiplomacy.tmp RunDiplomacy-0.out
 
