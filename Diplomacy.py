@@ -4,6 +4,23 @@ army_info = []
 # be an attribute of Army. Maybe use string function to display army
 # and location
 
+class Army:
+    def __init__(self, name, location, action, target=None):
+        self.name = name
+        self.location = location,
+
+        # action can be hold, attack, support
+        self.action = action
+
+        if target:
+            self.target = target
+
+
+"""
+TODO:
+- 2 more run ins and outs
+"""
+
 def diplomacy_read(s):
     '''
     read list of strings
