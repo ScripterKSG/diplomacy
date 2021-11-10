@@ -50,9 +50,9 @@ Diplomacy.html: Diplomacy.py
 Diplomacy.log:
 	git log > Diplomacy.log
 
-RunDiplomacy.tmp: RunDiplomacy.in RunDiplomacy.out RunDiplomacy.py
-	$(PYTHON) RunDiplomacy.py < RunDiplomacy.in > RunDiplomacy.tmp
-	diff --strip-trailing-cr RunDiplomacy.tmp RunDiplomacy.out
+RunDiplomacy.tmp: RunDiplomacy-0.in RunDiplomacy-0.out RunDiplomacy-0.py
+	$(PYTHON) RunDiplomacy.py < RunDiplomacy-0.in > RunDiplomacy.tmp
+	diff --strip-trailing-cr RunDiplomacy.tmp RunDiplomacy-0.out
 
 TestDiplomacy.tmp: TestDiplomacy.py
 	$(COVERAGE) run    --branch TestDiplomacy.py >  TestDiplomacy.tmp 2>&1
