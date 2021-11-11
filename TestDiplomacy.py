@@ -44,9 +44,7 @@ class TestDiplomacy (TestCase):
                       C Dallas Move Houston\n")
         w = StringIO()
         diplomacy_solve(r,w)
-        self.assertEqual("A [DEAD]\n\
-            B Austin\n\
-                C Houston\n", w.getvalue())
+        self.assertEqual("A [DEAD]\nB Austin\nC Houston\n", w.getvalue())
 # ----
 # main
 # ----

@@ -29,7 +29,14 @@ class Army:
         
     
     def __str__(self):
-        return f"{self.name} {self.location}"
+        if self.action == 'Move':
+            return f"{self.name} {self.target_loc}"
+        else:
+            return f"{self.name} {self.location}"
+        
+    def set_dead(self):
+        self.location = "[DEAD]"
+        self.target_loc = "[DEAD]"
 
 """
 TODO:
@@ -89,16 +96,25 @@ def diplomacy_eval():
                 support_arr.append(num_supports)
 
             max_support = max(support_arr)
-
+            
+            multiple_max = False
+            found_already = False
+            
             # check if multiple armies have the same number of supports -- if true everyone dead :(
-            multiple_max = set((max_support, max_support)).issubset(set(support_arr))
+            for army in armies_in_city:
+                if army.supporters == max_support:
+                    if not found_already: 
+                        found_already = True
+                    else:
+                        multiple_max = True
+                
             if multiple_max:
                 for army in armies_in_city:
-                    army.location = "[DEAD]"
+                    army.set_dead()
             else:
                 for army in armies_in_city:
-                    if army.supports != max_support:
-                        army.location = "[DEAD]"
+                    if army.supporters != max_support:
+                        army.set_dead()
     return None
 
 #Helper function for eval
@@ -137,5 +153,8 @@ def diplomacy_solve(r, w):
         # put army info into army_info array
         # put city: [army]
         diplomacy_read(line)
+        
+    for city in city_dict:
+        [print(army.name, sep="") for army in city_dict[city]]
     diplomacy_eval()
     diplomacy_print(w)

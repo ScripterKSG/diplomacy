@@ -1,19 +1,23 @@
-....F
-======================================================================
-FAIL: test_solve_2 (__main__.TestDiplomacy)
+.....
 ----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "/Users/mariojuguilon/Documents/cs-330e/diplomacy/TestDiplomacy.py", line 47, in test_solve_2
-    self.assertEqual("A [DEAD]\n\
-AssertionError: 'A [DEAD]\n                          B Austin\n     [28 chars]on\n' != 'A [DEAD]\nB Austin\nC [DEAD]\n'
-  A [DEAD]
--                           B Austin
--                           C Houston
-+ B Austin
-+ C [DEAD]
+Ran 5 tests in 0.001s
 
-
-----------------------------------------------------------------------
-Ran 5 tests in 0.002s
-
-FAILED (failures=1)
+OK
+---here every city listed
+Austin
+A
+B
+--- eval here
+---here every city listed
+Houston
+A
+C
+Austin
+B
+--- eval here
+Name               Stmts   Miss Branch BrPart  Cover   Missing
+--------------------------------------------------------------
+Diplomacy.py          90      3     50      3    96%   71, 129->136, 133-134, 136->127
+TestDiplomacy.py      37      0      2      1    97%   53->exit
+--------------------------------------------------------------
+TOTAL                127      3     52      4    96%
