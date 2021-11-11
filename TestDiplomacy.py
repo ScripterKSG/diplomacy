@@ -1,7 +1,7 @@
 from io import StringIO
 from unittest import main, TestCase
 
-from Diplomacy import diplomacy_read, diplomacy_eval, diplomacy_print, diplomacy_solve
+from Diplomacy import diplomacy_dict, diplomacy_read, diplomacy_eval, diplomacy_print, diplomacy_solve
 
 class TestDiplomacy (TestCase):
     # ----
@@ -9,7 +9,7 @@ class TestDiplomacy (TestCase):
     # ----
     def test_read_1(self):
         s = "A Houston Move Austin"
-        temp = diplomacy_read(s, [])
+        temp = diplomacy_read(s)
         self.assertEqual(temp.name, "A")
         self.assertEqual(temp.location, 'Houston')
         self.assertEqual(temp.action, "Move")
@@ -17,7 +17,7 @@ class TestDiplomacy (TestCase):
     
     def test_read_2(self):
         s = "B Austin Hold"
-        temp = diplomacy_read(s, [])
+        temp = diplomacy_read(s)
         self.assertEqual(temp.name, "B")
         self.assertEqual(temp.location, 'Austin')
         self.assertEqual(temp.action, "Hold")
@@ -25,7 +25,7 @@ class TestDiplomacy (TestCase):
 
     def test_read_3(self):
         s = "C Dallas Support B"     
-        temp = diplomacy_read(s, [])
+        temp = diplomacy_read(s)
         self.assertEqual(temp.name, "C")
         self.assertEqual(temp.location, 'Dallas')
         self.assertEqual(temp.action, "Support")
