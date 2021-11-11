@@ -1,7 +1,7 @@
 from io import StringIO
 from unittest import main, TestCase
 
-from Diplomacy import diplomacy_dict, diplomacy_read, diplomacy_eval, diplomacy_print, diplomacy_solve
+from Diplomacy import diplomacy_read, diplomacy_eval, diplomacy_print, diplomacy_solve
 
 class TestDiplomacy (TestCase):
     # ----
@@ -36,7 +36,24 @@ class TestDiplomacy (TestCase):
         w = StringIO()
 
         diplomacy_solve(r,w)
-        self.assertEqual("A Houston\nB Austin\n", w.getvalue())
+        self.assertEqual("A [dead]\nB [dead]\n", w.getvalue())
+
+    def test_solve_2(self):
+        r = StringIO("A Houston Hold\n\
+                      B Austin Support C\n\
+                      C Dallas Move Houston\n")
+        w = StringIO()
+        diplomacy_solve(r,w)
+        self.assertEqual("A [dead]\nB Austin\nC Houston\n", w.getvalue())
+
+    def test_solve_3(self):
+        r = StringIO("A Madrid Hold\n\
+                    B Barcelona Move Madrid\n\
+                    C London Move Madrid\n\
+                    D Paris Support B")
+        w = StringIO()
+        diplomacy_solve(r,w)
+        self.assertEqual("A [dead]\nB Madrid\nC [dead]\nD Paris\n", w.getvalue())
 # ----
 # main
 # ----

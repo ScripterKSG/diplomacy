@@ -25,9 +25,18 @@ class Army:
             self.target_army = target
 
         self.supporters = 0
+        self.attacked = None
+        
     
     def __str__(self):
-        return f"{self.name} {self.location}"
+        if self.action == 'Move':
+            return f"{self.name} {self.target_loc}"
+        else:
+            return f"{self.name} {self.location}"
+        
+    def set_dead(self):
+        self.location = "[dead]"
+        self.target_loc = "[dead]"
 
 """
 TODO:
@@ -77,22 +86,56 @@ def diplomacy_eval():
     for key in city_dict:
         armies_in_city = city_dict[key]
         if len(armies_in_city) > 1:
+
+            support_arr = []
+
             for army in armies_in_city:
-                army.supporters = diplomacy_check_support(army)
-                # Work start again here to compare supporters
+                num_supports = diplomacy_check_support(army)
+
+                army.supporters = num_supports
+                support_arr.append(num_supports)
+
+            max_support = max(support_arr)
+            
+            multiple_max = False
+            found_already = False
+            
+            # check if multiple armies have the same number of supports -- if true everyone dead :(
+            for army in armies_in_city:
+                if army.supporters == max_support:
+                    if not found_already: 
+                        found_already = True
+                    else:
+                        multiple_max = True
+                
+            if multiple_max:
+                for army in armies_in_city:
+                    army.set_dead()
+            else:
+                for army in armies_in_city:
+                    if army.supporters != max_support:
+                        army.set_dead()
+    return None
 
 #Helper function for eval
 def diplomacy_check_support(army):
+    """
+    @params: army object
+    returns number of armies that support input single army
+    """
     support = 0
     for a in army_info:
         if a.target_army == army.name and a.name != army.name:
-            attacked = False
-            for b in army_info:
-                if b.target_loc == a.location:
-                    attacked = True
-                    break
-            if not attacked:
+            if a.attacked is None:
+                a.attacked = False
+                for b in army_info:
+                    if b.target_loc == a.location:
+                        a.attacked = True
+                        break
+                
+            if not a.attacked: 
                 support += 1
+                
     return support
         
 
@@ -110,5 +153,6 @@ def diplomacy_solve(r, w):
         # put army info into army_info array
         # put city: [army]
         diplomacy_read(line)
-
+        
+    diplomacy_eval()
     diplomacy_print(w)
