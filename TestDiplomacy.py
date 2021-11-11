@@ -9,7 +9,7 @@ class TestDiplomacy (TestCase):
     # ----
     def test_read_1(self):
         s = "A Houston Move Austin"
-        temp = diplomacy_read(s, [])
+        temp = diplomacy_read(s)
         self.assertEqual(temp.name, "A")
         self.assertEqual(temp.location, 'Houston')
         self.assertEqual(temp.action, "Move")
@@ -17,7 +17,7 @@ class TestDiplomacy (TestCase):
     
     def test_read_2(self):
         s = "B Austin Hold"
-        temp = diplomacy_read(s, [])
+        temp = diplomacy_read(s)
         self.assertEqual(temp.name, "B")
         self.assertEqual(temp.location, 'Austin')
         self.assertEqual(temp.action, "Hold")
@@ -25,7 +25,7 @@ class TestDiplomacy (TestCase):
 
     def test_read_3(self):
         s = "C Dallas Support B"     
-        temp = diplomacy_read(s, [])
+        temp = diplomacy_read(s)
         self.assertEqual(temp.name, "C")
         self.assertEqual(temp.location, 'Dallas')
         self.assertEqual(temp.action, "Support")
@@ -36,7 +36,17 @@ class TestDiplomacy (TestCase):
         w = StringIO()
 
         diplomacy_solve(r,w)
-        self.assertEqual("A Houston\nB Austin\n", w.getvalue())
+        self.assertEqual("A [DEAD]\nB [DEAD]\n", w.getvalue())
+
+    def test_solve_2(self):
+        r = StringIO("A Houston Hold\n\
+                      B Austin Support C\n\
+                      C Dallas Move Houston\n")
+        w = StringIO()
+        diplomacy_solve(r,w)
+        self.assertEqual("A [DEAD]\n\
+            B Austin\n\
+                C Houston\n", w.getvalue())
 # ----
 # main
 # ----

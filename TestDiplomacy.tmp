@@ -1,11 +1,19 @@
-....
+....F
+======================================================================
+FAIL: test_solve_2 (__main__.TestDiplomacy)
 ----------------------------------------------------------------------
-Ran 4 tests in 0.000s
+Traceback (most recent call last):
+  File "/Users/mariojuguilon/Documents/cs-330e/diplomacy/TestDiplomacy.py", line 47, in test_solve_2
+    self.assertEqual("A [DEAD]\n\
+AssertionError: 'A [DEAD]\n                          B Austin\n     [28 chars]on\n' != 'A [DEAD]\nB Austin\nC [DEAD]\n'
+  A [DEAD]
+-                           B Austin
+-                           C Houston
++ B Austin
++ C [DEAD]
 
-OK
-Name               Stmts   Miss Branch BrPart  Cover   Missing
---------------------------------------------------------------
-Diplomacy.py          29      1     10      0    97%   78
-TestDiplomacy.py      32      0      2      1    97%   45->exit
---------------------------------------------------------------
-TOTAL                 61      1     12      1    97%
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.002s
+
+FAILED (failures=1)

@@ -25,6 +25,8 @@ class Army:
             self.target_army = target
 
         self.supporters = 0
+        self.attacked = None
+        
     
     def __str__(self):
         return f"{self.name} {self.location}"
@@ -89,33 +91,35 @@ def diplomacy_eval():
             max_support = max(support_arr)
 
             # check if multiple armies have the same number of supports -- if true everyone dead :(
-            multiple_max = set(max_support, max_support).issubset(set(support_arr))
+            multiple_max = set((max_support, max_support)).issubset(set(support_arr))
             if multiple_max:
-                #everyone dead
-                pass
+                for army in armies_in_city:
+                    army.location = "[DEAD]"
             else:
                 for army in armies_in_city:
                     if army.supports != max_support:
-                        # die ! 
-                        # army dies :(
                         army.location = "[DEAD]"
-                        pass
-                    else:
-                        pass
-                # Work start again here to compare supporters
+    return None
 
 #Helper function for eval
 def diplomacy_check_support(army):
+    """
+    @params: army object
+    returns number of armies that support input single army
+    """
     support = 0
     for a in army_info:
         if a.target_army == army.name and a.name != army.name:
-            attacked = False
-            for b in army_info:
-                if b.target_loc == a.location:
-                    attacked = True
-                    break
-            if not attacked:
+            if a.attacked is None:
+                a.attacked = False
+                for b in army_info:
+                    if b.target_loc == a.location:
+                        a.attacked = True
+                        break
+                
+            if not a.attacked: 
                 support += 1
+                
     return support
         
 
@@ -133,5 +137,5 @@ def diplomacy_solve(r, w):
         # put army info into army_info array
         # put city: [army]
         diplomacy_read(line)
-
+    diplomacy_eval()
     diplomacy_print(w)
