@@ -4,8 +4,8 @@ FILES :=                              \
     Diplomacy.html                      \
     Diplomacy.log                       \
     Diplomacy.py                        \
-    RunDiplomacy.in                     \
-    RunDiplomacy.out                    \
+    RunDiplomacy-0.in                     \
+    RunDiplomacy-0.out                    \
     RunDiplomacy.py                     \
     TestDiplomacy.out                   \
     TestDiplomacy.py 
