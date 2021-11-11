@@ -35,8 +35,8 @@ class Army:
             return f"{self.name} {self.location}"
         
     def set_dead(self):
-        self.location = "[DEAD]"
-        self.target_loc = "[DEAD]"
+        self.location = "[dead]"
+        self.target_loc = "[dead]"
 
 """
 TODO:
@@ -154,7 +154,5 @@ def diplomacy_solve(r, w):
         # put city: [army]
         diplomacy_read(line)
         
-    for city in city_dict:
-        [print(army.name, sep="") for army in city_dict[city]]
     diplomacy_eval()
     diplomacy_print(w)
