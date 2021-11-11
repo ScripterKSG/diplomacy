@@ -8,12 +8,12 @@ FILES :=                              \
     RunDiplomacy.out                    \
     RunDiplomacy.py                     \
     TestDiplomacy.out                   \
-    TestDiplomacy.py \
-    cs330e-Diplomacy-tests/mariojug-RunDiplomacy.in   \
-    cs330e-Diplomacy-tests/mariojug-RunDiplomacy.out  \
-    cs330e-Diplomacy-tests/mariojug-TestDiplomacy.out \
-    cs330e-Diplomacy-tests/mariojug-TestDiplomacy.py  
-
+    TestDiplomacy.py 
+#    cs330e-Diplomacy-tests/mariojug-RunDiplomacy.in   \
+#    cs330e-Diplomacy-tests/mariojug-RunDiplomacy.out  \
+#    cs330e-Diplomacy-tests/mariojug-TestDiplomacy.out \
+#    cs330e-Diplomacy-tests/mariojug-TestDiplomacy.py  
+#
 
 ifeq ($(shell uname), Darwin)          # Apple
     PYTHON   := python3
