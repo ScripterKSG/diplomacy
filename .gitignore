@@ -1,13 +1,8 @@
 __pycache__
-
 .coverage
-
 .DS_Store
-
 .mypy_cache
-
 .pylintrc
-*
-.pyc
-*
-.tmp
+*.pyc
+*.tmp
+diplomacy-2021-11-09.zip
