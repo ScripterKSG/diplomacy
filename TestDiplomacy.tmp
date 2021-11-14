@@ -1,23 +1,11 @@
-.....
+........
 ----------------------------------------------------------------------
-Ran 5 tests in 0.001s
+Ran 8 tests in 0.001s
 
 OK
----here every city listed
-Austin
-A
-B
---- eval here
----here every city listed
-Houston
-A
-C
-Austin
-B
---- eval here
 Name               Stmts   Miss Branch BrPart  Cover   Missing
 --------------------------------------------------------------
-Diplomacy.py          90      3     50      3    96%   71, 129->136, 133-134, 136->127
-TestDiplomacy.py      37      0      2      1    97%   53->exit
+Diplomacy.py          95      0     50      1    99%   164->171
+TestDiplomacy.py      52      0      2      1    98%   84->exit
 --------------------------------------------------------------
-TOTAL                127      3     52      4    96%
+TOTAL                147      0     52      2    99%
