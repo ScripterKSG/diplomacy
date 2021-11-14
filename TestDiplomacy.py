@@ -4,6 +4,8 @@ from unittest import main, TestCase
 from Diplomacy import diplomacy_read, diplomacy_eval, diplomacy_print, diplomacy_solve
 
 class TestDiplomacy (TestCase):
+    # TODO: add fail cases, 
+    
     # ----
     # read
     # ----

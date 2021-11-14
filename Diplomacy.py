@@ -89,6 +89,9 @@ def diplomacy_read(s):
         assert 65 <= ord(data[1][0]) <= 90
     
     temp_army = Army(*data)
+    
+    assert type(temp_army) == Army
+    
     army_info.append(temp_army)
 
     if temp_army.target_loc:
