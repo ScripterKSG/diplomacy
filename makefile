@@ -54,14 +54,21 @@ RunDiplomacy.tmp: RunDiplomacy-1.in RunDiplomacy-1.out \
 RunDiplomacy-2.in RunDiplomacy-2.out \
 RunDiplomacy-3.in RunDiplomacy-3.out \
 RunDiplomacy-4.in RunDiplomacy-4.out \
-RunDiplomacy-5.in RunDiplomacy-5.out RunDiplomacy.py
+RunDiplomacy-5.in RunDiplomacy-5.out \
+RunDiplomacy.py
 
-	$(PYTHON) RunDiplomacy.py < RunDiplomacy-1.in > RunDiplomacy.tmp
-	$(PYTHON) RunDiplomacy.py < RunDiplomacy-2.in >> RunDiplomacy.tmp
-	$(PYTHON) RunDiplomacy.py < RunDiplomacy-3.in >> RunDiplomacy.tmp
-	$(PYTHON) RunDiplomacy.py < RunDiplomacy-4.in >> RunDiplomacy.tmp
-	$(PYTHON) RunDiplomacy.py < RunDiplomacy-5.in >> RunDiplomacy.tmp
+	$(PYTHON) RunDiplomacy.py < RunDiplomacy-1.in >  RunDiplomacy.tmp
+	diff --strip-trailing-cr RunDiplomacy.tmp RunDiplomacy-1.out
+	$(PYTHON) RunDiplomacy.py < RunDiplomacy-2.in >  RunDiplomacy.tmp
+	diff --strip-trailing-cr RunDiplomacy.tmp RunDiplomacy-2.out
+	$(PYTHON) RunDiplomacy.py < RunDiplomacy-3.in >  RunDiplomacy.tmp
+	diff --strip-trailing-cr RunDiplomacy.tmp RunDiplomacy-3.out
+	$(PYTHON) RunDiplomacy.py < RunDiplomacy-4.in >  RunDiplomacy.tmp
+	diff --strip-trailing-cr RunDiplomacy.tmp RunDiplomacy-4.out
+	$(PYTHON) RunDiplomacy.py < RunDiplomacy-5.in >  RunDiplomacy.tmp
 	diff --strip-trailing-cr RunDiplomacy.tmp RunDiplomacy-5.out
+	
+	rm -f RunDiplomacy.tmp
 
 TestDiplomacy.tmp: TestDiplomacy.py
 	$(COVERAGE) run    --branch TestDiplomacy.py >  TestDiplomacy.tmp 2>&1
