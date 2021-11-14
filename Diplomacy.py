@@ -52,6 +52,11 @@ def diplomacy_read(s):
     
     data = [str(i).strip() for i in s.split()]
     
+    # -------
+    # Preconditions
+    # -------
+   
+    
     # checks that each line of data has between 3 - 4 entries
     assert 3 <= len(data) <= 4
     
@@ -65,7 +70,7 @@ def diplomacy_read(s):
     assert 65 <= ord(data[1][0]) <= 90
     
     # checks that action entry is either hold, support, or move
-    assert data[2].lower() in ["move","support","hold"]
+    assert data[2].lower() in ["move", "support", "hold"]
     
     if data[2].lower() == "support":
         # if action is support, the next entry should be an army
@@ -78,8 +83,10 @@ def diplomacy_read(s):
         assert 65 <= ord(data[3]) <= 90
         
     elif data[2].lower() == "move":
-        # if action is move, 
-        pass
+        # if action is move, the next entry should be a city
+        
+        # checks that city entry has an uppercase first letter
+        assert 65 <= ord(data[1][0]) <= 90
     
     temp_army = Army(*data)
     army_info.append(temp_army)
@@ -97,15 +104,12 @@ def diplomacy_read(s):
 
     return temp_army
 
-###TEST
-def diplomacy_dict():
-    return city_dict
-
 def diplomacy_print(w):
     '''
     w a writer
     takes data from army_info and army name and their locations
     '''
+    
     for army in army_info:
         w.write(str(army) + "\n")
     
@@ -177,17 +181,21 @@ def diplomacy_solve(r, w):
     w a writer
     reads all input from the file and executes Diplomacy
     '''
-    # pre conditions
-    # check that r has text in it
-    assert len(r.read()) > 0
-    r.seek(0)
+    
+    # -------
+    # Preconditions
+    # -------
+    
+    # check that r can be read
+    assert callable(r.read)
+    
+    # check that w can be written 
+    assert callable(w.write)
     
     army_info.clear()
     # dictionary with city key, army array value
     city_dict.clear()
     for line in r:
-        # put army info into army_info array
-        # put city: [army]
         diplomacy_read(line)
         
     diplomacy_eval()
