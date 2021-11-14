@@ -49,7 +49,38 @@ def diplomacy_read(s):
     s a list of strings
     returns an Army object
     '''
-    data = [str(i) for i in s.split()]
+    
+    data = [str(i).strip() for i in s.split()]
+    
+    # checks that each line of data has between 3 - 4 entries
+    assert 3 <= len(data) <= 4
+    
+    # checks that the first entry in line is a single character
+    assert len(data[0]) == 1
+    
+    # checks that the first entry in line is capitalized
+    assert 65 <= ord(data[0]) <= 90
+    
+    # checks that city entry has an uppercase first letter
+    assert 65 <= ord(data[1][0]) <= 90
+    
+    # checks that action entry is either hold, support, or move
+    assert data[2].lower() in ["move","support","hold"]
+    
+    if data[2].lower() == "support":
+        # if action is support, the next entry should be an army
+        # indicated by a single uppercase letter
+        
+        # checks that the last entry in line is a single character
+        assert len(data[3]) == 1
+        
+        # checks that the last entry in line is capitalized
+        assert 65 <= ord(data[3]) <= 90
+        
+    elif data[2].lower() == "move":
+        # if action is move, 
+        pass
+    
     temp_army = Army(*data)
     army_info.append(temp_army)
 
@@ -146,6 +177,11 @@ def diplomacy_solve(r, w):
     w a writer
     reads all input from the file and executes Diplomacy
     '''
+    # pre conditions
+    # check that r has text in it
+    assert len(r.read()) > 0
+    r.seek(0)
+    
     army_info.clear()
     # dictionary with city key, army array value
     city_dict.clear()
