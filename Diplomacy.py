@@ -17,11 +17,11 @@ class Army:
         self.location = location
 
         # action can be hold, attack, support
-        self.action = action
+        self.action = action.lower().capitalize()
 
-        if action == 'Move':
+        if self.action == 'Move':
             self.target_loc = target
-        elif action == 'Support':
+        elif self.action == 'Support':
             self.target_army = target
 
         self.supporters = 0
