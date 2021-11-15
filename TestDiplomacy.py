@@ -83,3 +83,21 @@ class TestDiplomacy (TestCase):
 
 if __name__ == "__main__":
     main()
+
+""" #pragma: no cover
+$ coverage run --branch TestDiplomacy.py >  TestDiplomacy.out 2>&1
+
+
+$ cat TestDiplomacy.out
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.000s
+OK
+
+
+$ coverage report -m                   >> TestDiplomacy.out
+
+
+
+$ cat TestDiplomacy.out
+"""
