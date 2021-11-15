@@ -89,6 +89,9 @@ def diplomacy_read(s):
         assert 65 <= ord(data[1][0]) <= 90
     
     temp_army = Army(*data)
+    
+    assert type(temp_army) == Army
+    
     army_info.append(temp_army)
 
     if temp_army.target_loc:
@@ -125,25 +128,11 @@ def diplomacy_eval():
             support_arr = []
 
             for army in armies_in_city:
-                num_supports = diplomacy_check_support(army)
-
-                army.supporters = num_supports
-                support_arr.append(num_supports)
+                support_arr.append(army.supporters)
 
             max_support = max(support_arr)
             
-            multiple_max = False
-            found_already = False
-            
-            # check if multiple armies have the same number of supports -- if true everyone dead :(
-            for army in armies_in_city:
-                if army.supporters == max_support:
-                    if not found_already: 
-                        found_already = True
-                    else:
-                        multiple_max = True
-                
-            if multiple_max:
+            if support_arr.count(max_support) > 1:
                 for army in armies_in_city:
                     army.set_dead()
             else:
@@ -161,12 +150,12 @@ def diplomacy_check_support(army):
     support = 0
     for a in army_info:
         if a.target_army == army.name and a.name != army.name:
-            if a.attacked is None:
-                a.attacked = False
-                for b in army_info:
-                    if b.target_loc == a.location:
-                        a.attacked = True
-                        break
+
+            a.attacked = False
+            for b in army_info:
+                if b.target_loc == a.location:
+                    a.attacked = True
+                    break
                 
             if not a.attacked: 
                 support += 1
@@ -197,6 +186,9 @@ def diplomacy_solve(r, w):
     city_dict.clear()
     for line in r:
         diplomacy_read(line)
+        
+    for army in army_info:
+        army.supporters = diplomacy_check_support(army)
         
     diplomacy_eval()
     diplomacy_print(w)
