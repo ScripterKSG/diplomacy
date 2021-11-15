@@ -1,7 +1,7 @@
 from io import StringIO
 from unittest import main, TestCase
 
-from Diplomacy import diplomacy_read, diplomacy_eval, diplomacy_print, diplomacy_solve
+from Diplomacy import diplomacy_read, diplomacy_eval, diplomacy_print, diplomacy_check_support, diplomacy_solve
 
 class TestDiplomacy (TestCase):
     # TODO: add fail cases, 
@@ -73,11 +73,54 @@ class TestDiplomacy (TestCase):
             C London Move Madrid\n\
             D Paris Support B\n\
             E Dublin support D\n\
-                F Dallas move Paris")
+            F Dallas move Paris")
         w = StringIO()
         diplomacy_solve(r,w)
         self.assertEqual("A [dead]\nB [dead]\nC [dead]\nD Paris\nE Dublin\nF [dead]\n", w.getvalue())
-        
+
+    def test_solve_6(self):
+        r = StringIO("A Madrid Hold\n\
+                    B Barcelona Move Madrid\n\
+                    C London Support A\n\
+                    D Paris Support A")
+        w = StringIO()
+        diplomacy_solve(r,w)
+        self.assertEqual("A Madrid\nB [dead]\nC London\nD Paris\n", w.getvalue())
+
+    def test_helper_1(self):
+        r = StringIO()
+        w = StringIO()
+        diplomacy_solve(r,w)
+        s1 = "A Madrid Hold"
+        s2 = "B London Support A"
+        temp1 = diplomacy_read(s1)
+        temp2 = diplomacy_read(s2)
+        self.assertEqual(diplomacy_check_support(temp1), 1)
+        self.assertEqual(diplomacy_check_support(temp2), 0)
+
+    def test_helper_2(self):
+        r = StringIO()
+        w = StringIO()
+        diplomacy_solve(r,w)
+        s1 = "A Madrid Hold"
+        s2 = "B London Move Austin"
+        s3 = "C Austin Support A"
+        s4 = "D Dallas Support B"
+        s5 = "E Houston Move Dallas"
+        s6 = "F Orleans Support A"
+        temp1 = diplomacy_read(s1)
+        temp2 = diplomacy_read(s2)
+        temp3 = diplomacy_read(s3)
+        temp4 = diplomacy_read(s4)
+        temp5 = diplomacy_read(s5)
+        temp6 = diplomacy_read(s6)
+        self.assertEqual(diplomacy_check_support(temp1), 1)
+        self.assertEqual(diplomacy_check_support(temp2), 0)
+        self.assertEqual(diplomacy_check_support(temp3), 0)
+        self.assertEqual(diplomacy_check_support(temp4), 0)
+        self.assertEqual(diplomacy_check_support(temp5), 0)
+        self.assertEqual(diplomacy_check_support(temp6), 0)
+
 # ----
 # main
 # ----
@@ -85,3 +128,21 @@ class TestDiplomacy (TestCase):
 
 if __name__ == "__main__":
     main()
+
+""" #pragma: no cover
+$ coverage run --branch TestDiplomacy.py >  TestDiplomacy.out 2>&1
+
+
+$ cat TestDiplomacy.out
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.000s
+OK
+
+
+$ coverage report -m                   >> TestDiplomacy.out
+
+
+
+$ cat TestDiplomacy.out
+"""

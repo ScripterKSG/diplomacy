@@ -4,16 +4,32 @@ FILES :=                              \
     Diplomacy.html                      \
     Diplomacy.log                       \
     Diplomacy.py                        \
+	RunDiplomacy-1.in                     \
+	RunDiplomacy-1.out                     \
+	RunDiplomacy-2.in                     \
+	RunDiplomacy-2.out                     \
+	RunDiplomacy-3.in                     \
+	RunDiplomacy-3.out                     \
+	RunDiplomacy-4.in                     \
+	RunDiplomacy-4.out                     \
     RunDiplomacy-5.in                     \
     RunDiplomacy-5.out                    \
     RunDiplomacy.py                     \
     TestDiplomacy.out                   \
-    TestDiplomacy.py 
-#    cs330e-Diplomacy-tests/mariojug-RunDiplomacy.in   \
-#    cs330e-Diplomacy-tests/mariojug-RunDiplomacy.out  \
-#    cs330e-Diplomacy-tests/mariojug-TestDiplomacy.out \
-#    cs330e-Diplomacy-tests/mariojug-TestDiplomacy.py  
-#
+    TestDiplomacy.py \
+    cs330e-Diplomacy-tests/ScripterKSG-RunDiplomacy-1.in   \
+    cs330e-Diplomacy-tests/ScripterKSG-RunDiplomacy-1.out  \
+	cs330e-Diplomacy-tests/ScripterKSG-RunDiplomacy-2.in  \
+	cs330e-Diplomacy-tests/ScripterKSG-RunDiplomacy-2.out  \
+	cs330e-Diplomacy-tests/ScripterKSG-RunDiplomacy-3.in  \
+	cs330e-Diplomacy-tests/ScripterKSG-RunDiplomacy-3.out  \
+	cs330e-Diplomacy-tests/ScripterKSG-RunDiplomacy-4.in  \
+	cs330e-Diplomacy-tests/ScripterKSG-RunDiplomacy-4.out  \
+	cs330e-Diplomacy-tests/ScripterKSG-RunDiplomacy-5.in  \
+	cs330e-Diplomacy-tests/ScripterKSG-RunDiplomacy-5.out  \
+    cs330e-Diplomacy-tests/ScripterKSG-TestDiplomacy.out \
+    cs330e-Diplomacy-tests/ScripterKSG-TestDiplomacy.py  
+
 
 ifeq ($(shell uname), Darwin)          # Apple
     PYTHON   := python3
