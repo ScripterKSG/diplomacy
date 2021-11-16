@@ -1,0 +1,206 @@
+commit d7d8068f8d3f2e1e7d7ab3b965a9510dc955bba0
+Author: ScripterKSG <jasonn1210@gmail.com>
+Date:   Tue Nov 16 17:38:00 2021 -0600
+
+    Added more comments, removed zip file, looking for pipeline success
+
+commit 9b77483ad9a57f1a5fbb1ab04ca7eab04af58478
+Author: ScripterKSG <jasonn1210@gmail.com>
+Date:   Mon Nov 15 14:41:20 2021 -0600
+
+    TestDiplomacy.out now has 100% coverage
+
+commit cdb55df38834fe4922aeab780c59764aeae7c24d
+Author: ScripterKSG <jasonn1210@gmail.com>
+Date:   Mon Nov 15 14:38:42 2021 -0600
+
+    Editted Diplomacy to get 100% coverage
+
+commit b79bda2ae3995f074301e4d438e6e92d6a95ff81
+Author: ScripterKSG <jasonn1210@gmail.com>
+Date:   Mon Nov 15 14:05:06 2021 -0600
+
+    Added more unit tests, trying to get 100% coverage, not yet done
+
+commit 3912ba4a52027983f6ec94c79d12c5b1a7fce2e3
+Author: ScripterKSG <jasonn1210@gmail.com>
+Date:   Mon Nov 15 01:52:13 2021 -0600
+
+    Added comment about writing coverage to out file
+
+commit 16bfa6dc3e6b33db93f6cce5dd49a9fcf8126c59
+Author: ScripterKSG <jasonn1210@gmail.com>
+Date:   Mon Nov 15 01:48:51 2021 -0600
+
+    Updated makefile, have coverage on TestDiplomacy.out
+
+commit c90d51dd3058dd8c2435098f48849a3f5cc91047
+Merge: 3c172fb 23d144b
+Author: Jason Nguyen <jasonn1210@gmail.com>
+Date:   Sun Nov 14 04:28:15 2021 +0000
+
+    Merge branch 'dev' into 'main'
+    
+    Merge Request 3
+    
+    Closes #13
+    
+    See merge request ScripterKSG/diplomacy!3
+
+commit 23d144b5de951658fdcf659c66716793e83cce45
+Author: Mario Juguilon <mariojjuguilon@gmail.com>
+Date:   Sat Nov 13 22:24:29 2021 -0600
+
+    Fixed acceptance test makefile (RunDiplomacy.tmp)
+
+commit ec72e871cfee9017b65fdc4d87be02fad5713af5
+Author: Mario Juguilon <mariojjuguilon@gmail.com>
+Date:   Sat Nov 13 22:16:44 2021 -0600
+
+    Fixed makefile (Added RunDiplo1-5)
+
+commit 7c8a1a25207a0c39f9b0ded38eb38d1ec6ccc45d
+Author: Mario Juguilon <mariojjuguilon@gmail.com>
+Date:   Sat Nov 13 22:12:39 2021 -0600
+
+    Fix #13 Added assertions, acceptance tests 1-5
+
+commit ce63673d315f89b49f2c34db49fd6b88c33b944c
+Author: Mario Juguilon <mariojjuguilon@gmail.com>
+Date:   Sat Nov 13 21:52:36 2021 -0600
+
+    Changed RunDiplo-0 -> -5
+
+commit 5e72b2e489a4f2bdd496b17cbf0aaeabc21cd1e4
+Author: Mario Juguilon <mariojjuguilon@gmail.com>
+Date:   Sat Nov 13 21:25:10 2021 -0600
+
+    Added two corner cases
+
+commit 3c172fb5d88fab39a19cc3a4cd154ff8b2cc1eba
+Merge: df2c196 592f465
+Author: Mario Juguilon <mariojjuguilon@gmail.com>
+Date:   Thu Nov 11 13:47:27 2021 -0600
+
+    Merge branch 'dev'
+
+commit df2c196e6e214a559e0753c61726d54fce24a406
+Author: Mario Juguilon <mariojjuguilon@gmail.com>
+Date:   Thu Nov 11 13:45:38 2021 -0600
+
+    Copy/paste dev into main
+
+commit 592f4655b722e0b4028394bdc5a60e555e09707a
+Author: ScripterKSG <jasonn1210@gmail.com>
+Date:   Thu Nov 11 13:27:48 2021 -0600
+
+    makefile update changed RunDiplo to RunDiplo-0
+
+commit 9dcd0ac9431c241436fee22778f32b5f2119cd57
+Author: ScripterKSG <jasonn1210@gmail.com>
+Date:   Thu Nov 11 13:25:09 2021 -0600
+
+    commented out diplomacy tests from public repo in makefile
+
+commit 8bf860fcf16c93c781e0444f16601dd86c0026bc
+Author: ScripterKSG <jasonn1210@gmail.com>
+Date:   Thu Nov 11 13:21:17 2021 -0600
+
+    Added 3rd diplo_solve unittest, cleaned up diplomacy
+
+commit 8f7ecb81de3b87c1b6e1c9d27a1953263cb46939
+Author: Mario Juguilon <mariojjuguilon@gmail.com>
+Date:   Thu Nov 11 13:10:28 2021 -0600
+
+    Fixed and passed unit tests for diplo_solve
+
+commit 9e2b38ba44e2da85362438531805ebbce1a07846
+Author: Mario Juguilon <mariojjuguilon@gmail.com>
+Date:   Thu Nov 11 12:45:24 2021 -0600
+
+    Fleshed out first pass at diplo_eval/_solve
+
+commit 533f007774fb3ea42829ccc3b34d9e8863ca2b94
+Author: Mario Juguilon <mariojjuguilon@gmail.com>
+Date:   Thu Nov 11 12:20:35 2021 -0600
+
+    Flesh skeleton of diplomacy_eval
+
+commit 2a139f4c978316b2e1337940e1054c89afaaebcb
+Author: ScripterKSG <jasonn1210@gmail.com>
+Date:   Thu Nov 11 12:09:13 2021 -0600
+
+    Added city_dict and began working on diplomacy_eval in Diplomacy.py
+
+commit c37dca2988ef3ce3272087ec517da269e6fd27bd
+Author: Mario Juguilon <mariojjuguilon@gmail.com>
+Date:   Tue Nov 9 19:48:03 2021 -0600
+
+    Added RunDiplomacy newlines
+
+commit 2406d6bc08a0427e101909d31d87dde39c467be3
+Author: Mario Juguilon <mariojjuguilon@gmail.com>
+Date:   Tue Nov 9 19:45:47 2021 -0600
+
+    Fixed make RunDiplomacy.tmp dependencies
+
+commit f59c79f6f5392ae11643fe00d01ef87c2d0f28d0
+Author: Mario Juguilon <mariojjuguilon@gmail.com>
+Date:   Tue Nov 9 19:43:21 2021 -0600
+
+    Fixed make RunDiplomacy.tmp dependencies/
+
+commit 4f17256edd43bf5ac9d2c09d423aa62e94e6e127
+Author: Mario Juguilon <mariojjuguilon@gmail.com>
+Date:   Tue Nov 9 19:38:49 2021 -0600
+
+    Add pipeline file
+
+commit 1eb935caea527b866e09e41719de5edd329221a0
+Merge: 483b4ad fdecbc0
+Author: ScripterKSG <jasonn1210@gmail.com>
+Date:   Tue Nov 9 19:36:42 2021 -0600
+
+    Merge branch 'main' of https://gitlab.com/ScripterKSG/diplomacy
+
+commit 483b4adce4345a0446d10ff31993f3572186ee70
+Author: ScripterKSG <jasonn1210@gmail.com>
+Date:   Tue Nov 9 19:36:18 2021 -0600
+
+    Adding RunDiplomacy in and out files, fixed git ignore issues, updated Diplomacy and Unit Tests
+
+commit fdecbc02d186aaffc58f0754e5e0513b70ee9b82
+Author: Mario Juguilon <mariojjuguilon@gmail.com>
+Date:   Tue Nov 9 19:23:39 2021 -0600
+
+    Succesful read build
+
+commit ec22ead64c5c0a314f9088ddc744fa088dba4b2e
+Author: Mario Juguilon <mariojjuguilon@gmail.com>
+Date:   Tue Nov 9 18:36:17 2021 -0600
+
+    Added makefile, .gitlab-ci.yml, run-0,run-1,run-2
+
+commit 22e63ffe83cb3aa031f161e4dcbaba0a3fea52d7
+Author: Mario Juguilon <mariojjuguilon@gmail.com>
+Date:   Tue Nov 2 19:07:34 2021 -0500
+
+    Add templates
+
+commit 9924c28bb452031f12024acb0fd496a2baac334b
+Author: Mario Juguilon <mariojjuguilon@gmail.com>
+Date:   Tue Nov 2 18:17:37 2021 -0500
+
+    Add gitignore, makefile, requirements.txt
+
+commit 83ea27aaf117d6806ad52983f9eb8a32fa49dae2
+Author: ScripterKSG <jasonn1210@gmail.com>
+Date:   Tue Nov 2 18:12:34 2021 -0500
+
+    Updated ReadMe and added makefile, gitignore, requirements
+
+commit a384079234fda05f6e3398abd1a8433fb0868244
+Author: Jason Nguyen <jasonn1210@gmail.com>
+Date:   Thu Oct 28 20:37:53 2021 +0000
+
+    Initial commit

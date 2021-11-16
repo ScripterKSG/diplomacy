@@ -2,8 +2,11 @@
 # be an attribute of Army. Maybe use string function to display army
 # and location
 
+'''
+army_info is a list of army objects
+city_dict is a dictionary with all the city names as keys and a list of army objects that are holding/moving to it as values
+'''
 army_info = []
-# dictionary with city key, army array value
 city_dict = {}
 
 class Army:
@@ -182,9 +185,10 @@ def diplomacy_solve(r, w):
     # check that w can be written 
     assert callable(w.write)
     
+    #make sure list/dict are empty before diplomacy
     army_info.clear()
-    # dictionary with city key, army array value
     city_dict.clear()
+
     for line in r:
         diplomacy_read(line)
         
