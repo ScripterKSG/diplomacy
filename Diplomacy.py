@@ -7,6 +7,9 @@ army_info = []
 city_dict = {}
 
 class Army:
+    '''
+    Stores attributes Army Name, Location, and Target Army/Location if any within a single object
+    '''
     def __init__(self, name, location, action, target=None):
         
         self.target_army = None
@@ -34,14 +37,13 @@ class Army:
         else:
             return f"{self.name} {self.location}"
         
+    
     def set_dead(self):
+        '''
+        Sets location/target location attributes to dead
+        '''
         self.location = "[dead]"
         self.target_loc = "[dead]"
-
-"""
-TODO:
-- 2 more run ins and outs
-"""
 
 def diplomacy_read(s):
     '''
@@ -144,8 +146,7 @@ def diplomacy_eval():
 #Helper function for eval
 def diplomacy_check_support(army):
     """
-    @params: army object
-    returns number of armies that support input single army
+    Takes army object, returns number of armies that support given army object
     """
     support = 0
     for a in army_info:

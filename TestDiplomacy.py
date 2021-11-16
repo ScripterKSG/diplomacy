@@ -1,10 +1,9 @@
 from io import StringIO
 from unittest import main, TestCase
 
-from Diplomacy import diplomacy_read, diplomacy_eval, diplomacy_print, diplomacy_check_support, diplomacy_solve
+from Diplomacy import diplomacy_read, diplomacy_check_support, diplomacy_solve
 
 class TestDiplomacy (TestCase):
-    # TODO: add fail cases, 
     
     # ----
     # read
@@ -33,6 +32,9 @@ class TestDiplomacy (TestCase):
         self.assertEqual(temp.action, "Support")
         self.assertEqual(temp.target_army, "B")
 
+    # ----
+    # solve
+    # ----
     def test_solve_1(self):
         r = StringIO("A Houston Move Austin\nB Austin Hold\n")
         w = StringIO()
@@ -87,6 +89,9 @@ class TestDiplomacy (TestCase):
         diplomacy_solve(r,w)
         self.assertEqual("A Madrid\nB [dead]\nC London\nD Paris\n", w.getvalue())
 
+    # ----
+    # check_diplomacy helper function
+    # ----
     def test_helper_1(self):
         r = StringIO()
         w = StringIO()
